@@ -1,0 +1,23 @@
+{
+  "name": "prototype_heatmap",
+  "version": "1.0.0",
+  "description": "HeatMap Prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinInTheHoodd/HeatMap.git"
+  },
+  "author": "Robin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobinInTheHoodd/HeatMap/issues"
+  },
+  "homepage": "https://github.com/RobinInTheHoodd/HeatMap#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "heatmapjs": "^2.0.2"
+  }
+}
