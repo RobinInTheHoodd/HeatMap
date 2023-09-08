@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeatMap Example</title>
+    
+    
+    <!-- Styles pour Leaflet -->
+    <link rel="stylesheet" href="/node_modules/leaflet/dist/leaflet.css" />
+
+    <!-- Scripts pour Leaflet, Heatmap.js, et le plugin Leaflet Heatmap Layer -->
+    <script src="/node_modules/leaflet/dist/leaflet.js"></script>
     <script src="../node_modules/heatmapjs/heatmap.min.js"></script>
-    <style>
-        #heatmap {
-            width: 500px;
-            height: 500px;
-            position: relative; /* Important pour que heatmap.js positionne correctement le canvas */
-        }
-    </style>
+    <script src="js/leaflet-heatmap.js"></script> 
+
 </head>
 
 <body>
-    <div id="heatmap"></div>
+    <div id="mapid" style="width: 500px; height: 500px;"></div>
+
     <script src="js/main.js"></script>
 </body>
 </html>
