@@ -23,24 +23,39 @@ document.addEventListener('DOMContentLoaded', () => {
     let points = [];
     const max = 100;
 
-    // Générer et ajouter 10 nouveaux points toutes les 5 secondes
-    setInterval(() => {
-        points = [];
-        for (let i = 0; i < 10; i++) {
-            const val = Math.floor(Math.random() * 100);
-            const point = {
-                lat: 45.50884 + (Math.random() - 0.5) * 0.1, 
-                lng: -73.58781 + (Math.random() - 0.5) * 0.1,
-                value: val
-            };
-            points.push(point);
-        }
+    function generateRandomPoint() {
+        const val = Math.floor(Math.random() * 100);
+        return {
+            lat: 45.50884 + (Math.random() - 0.5) * 0.1, 
+            lng: -73.58781 + (Math.random() - 0.5) * 0.1,
+            value: val
+        };
+    }
 
-        const data = {
-            max: max,
-            data: points
-        };  
-
+    function updateHeatmap() {
+        const data = { max: max, data: points };  
         heatmapLayer.setData(data);
-    }, 5000);   
+    }
+
+    let intervalId = null;
+
+    document.getElementById('advanceTime').addEventListener('click', () => {
+        clearInterval(intervalId);
+        intervalId = setInterval(() => {
+            points.push(generateRandomPoint());
+            updateHeatmap();
+        }, 1000);
+    });
+
+    document.getElementById('reverseTime').addEventListener('click', () => {
+        clearInterval(intervalId);
+        intervalId = setInterval(() => {
+            points.pop();
+            updateHeatmap();
+        }, 1000);
+    });
+
+    document.getElementById('pause').addEventListener('click', () => {
+        clearInterval(intervalId);
+    });
 });
